@@ -1,3 +1,4 @@
+import os
 import csv
 import fnmatch 
 from shutil import copyfile
@@ -18,9 +19,6 @@ def find(pattern, path):
     return result         
 
 def csv_dict_reader(file_obj):
-    """
-    Read a CSV file using csv.DictReader
-    """
     reader = csv.DictReader(file_obj, delimiter=',')
     for line in reader:
         line_to_find='*'+line[encoded_univer_name]+'*'+line[encoded_course_name]+'*.csv'
@@ -31,10 +29,10 @@ def csv_dict_reader(file_obj):
         print(found_line)
         if  os.path.exists(found_line):
             copyfile(found_line,line_to_replace)
-            with open(line_to_replace,'rb') as F:
-                text=F.read()
-                text=text.decode("cp1251")
-                text = text.encode("ascii","ignore")
+            #with open(line_to_replace,'rb') as F:
+            #    text=F.read()
+            #    text=text.decode("utf-8")
+            #    text = text.encode("ascii")
                    
         
 #main
