@@ -29,10 +29,10 @@ def csv_dict_reader(file_obj):
         print(found_line)
         if  os.path.exists(found_line):
             copyfile(found_line,line_to_replace)
-            #with open(line_to_replace,'rb') as F:
-            #    text=F.read()
-            #    text=text.decode("utf-8")
-            #    text = text.encode("ascii")
+            with open(line_to_replace,'rb') as F:
+                text=F.read()
+                text=text.decode("utf-8")
+                text = text.encode("ascii")
                    
         
 #main
